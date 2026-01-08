@@ -1,0 +1,11 @@
+{
+    "course":"open Source Web Development",
+    "instructor":"Jordan Dubreuil",
+    "topics":[
+        "Node.js",
+        "Express",
+        "REST APIs",
+        "JSON",
+        "Fetch"
+    ]
+} 
