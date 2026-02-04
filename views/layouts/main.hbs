@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Library</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main class="container">
+        <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <div><a href="/">Game Library</a></div>
+
+            <div>
+                {{#if user}}
+                    <span>Signed in as {{user.username}}</span>
+                    <form action="/logout" method="POST">
+                        <button type="submit">Logout</button>
+                    </form>
+                {{else}}
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                {{/if}}
+            </div>
+        </header>
+        {{{body}}}
+    </main>
+</body>
+</html>

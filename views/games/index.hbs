@@ -1,0 +1,70 @@
+<h1>Video Game Library</h1>
+
+{{#if error}}
+    <p class="error">{{error}}</p>
+{{/if}}
+
+<section class="card">
+    <form action="/" method="POST">
+        <label>Title
+            <input name="title" value="{{form.title}}" required>
+        </label>
+        <br>
+        <label>Platform
+            <input name="platform" value="{{form.platform}}" required>
+        </label>
+        <br>
+        <label>Genre
+            <input name="genre" value="{{form.genre}}" required>
+        </label>
+        <br>
+        <label>Rating
+            <input type="number" name="rating" min="0" max="10" value="{{form.rating}}" required>
+        </label>
+        <br>
+        <label>Release Year
+            <input type="number" name="releaseYear" min="1970" max="2100" value="{{form.releaseYear}}">
+        </label>
+        <br>
+        <button type="submit">Create Entry</button>
+    </form>
+</section>
+
+<section class="card">
+    <h2>List of Games</h2>
+
+    {{#if games.length}}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Platform</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Release Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each games}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.platform}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.rating}}</td>
+                <td>{{this.releaseYear}}</td>
+                <td>
+                    <a href="/games/{{this._id}}/edit">Edit</a>
+                    <form action="/games/{{this._id}}/?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{#else}}
+        <p>No games yet, Start your game collection now!</p>
+    {{/else}}
+    {{/if}}
+</section>

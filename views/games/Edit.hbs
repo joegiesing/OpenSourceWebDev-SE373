@@ -1,0 +1,33 @@
+<h1>Edit Game</h1>
+
+{{#if error}}
+    <p class="error">{{error}}</p>
+{{/if}}
+
+<section class="card">
+    <form action="/games/{{game._id}}?_method=PUT" method="POST">
+        <label>Title
+            <input name="title" value="{{game.title}}" required>
+        </label>
+        <br>
+        <label>Platform
+            <input name="platform" value="{{game.platform}}" required>
+        </label>
+        <br>
+        <label>Genre
+            <input name="genre" value="{{game.genre}}" required>
+        </label>
+        <br>
+        <label>Rating
+            <input type="number" name="rating" min="0" max="10" value="{{game.rating}}" required>
+        </label>
+        <br>
+        <label>Release Year
+            <input type="number" name="releaseYear" min="1970" max="2100" value="{{game.releaseYear}}">
+        </label>
+        <br>
+        <button type="submit">Update Entry</button>
+        <br>
+        <a href="/">Cancel</a>
+    </form>
+</section>
